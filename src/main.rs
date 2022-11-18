@@ -50,7 +50,6 @@ fn main() {
                 b: 0
             };           
             array[i][j] = _box;
-            
             temp_x = 15* (j as i64) - 15;
             temp_y = 15* (i as i64);
         }
@@ -66,13 +65,19 @@ fn main() {
         // coloring the grid
         for i in (0..GRID_DATA.height).rev() {
             for j in (0..GRID_DATA.width).rev() {
-                if ((array[i][j].state != true) && event_pump.mouse_state().x() > (array[i][j].x as i32) && event_pump.mouse_state().x() < (array[i][j].x as i32) + 15) && (event_pump.mouse_state().y() > (array[i][j].y as i32) && event_pump.mouse_state().y() < (array[i][j].y as i32) + 15) {
-                    if event_pump.mouse_state().left() && array[i][j].state == false {
-                        temp_array[i][j].state = true;
+                if (event_pump.mouse_state().x() > (array[i][j].x as i32) && event_pump.mouse_state().x() < (array[i][j].x as i32) + 15) && (event_pump.mouse_state().y() > (array[i][j].y as i32) && event_pump.mouse_state().y() < (array[i][j].y as i32) + 15) {
+                    if array[i][j].state != true{
+                        if event_pump.mouse_state().left(){
+                            temp_array[i][j].state = true;
+                        }
+                        temp_array[i][j].r = 80; 
+                        temp_array[i][j].g = 80;
+                        temp_array[i][j].b = 80;
+                    } else if array[i][j].state != false {
+                        if event_pump.mouse_state().right(){
+                            temp_array[i][j].state = false;
+                        }
                     }
-                    temp_array[i][j].r = 80; 
-                    temp_array[i][j].g = 80;
-                    temp_array[i][j].b = 80;
                 } else {
                     if array[i][j].state == false && running == false{
                         temp_array[i][j].r = 50;
@@ -116,7 +121,6 @@ fn main() {
                         temp_array[i][j].state = false;  
                     }
                 }
-
             }
         }
 

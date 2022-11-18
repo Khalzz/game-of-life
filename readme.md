@@ -27,5 +27,5 @@ For this implementation the controls are:
 
 + `ESC`: Quit.
 + `Space`: Start or pause the execution (if the background is red it's paused, if it's black it's running).
-+ `Mouse clic`: To add cells on a certain place of the grid.
-
++ `Mouse left clic`: To add cells on a certain place of the grid.
++ `Mouse right clic`: To delete cells on a certain place of the grid.

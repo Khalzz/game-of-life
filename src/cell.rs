@@ -25,30 +25,15 @@ impl Box {
     pub fn count_neighboors(&mut self ,array:&Vec<Vec<Box>>, i:usize, j: usize, running: bool) -> u8 {
         if running == true {
             if i > 0 && i < 59 && j > 0 && j < 95 {
-                // this implementation is bullshit, try something better
-                if array[i - 1][j].state == true {
-                    self.neighboors += 1;
+                for x in i-1..i+2 {
+                    for y in j-1..j+2 {
+                        if array[x][y].state == true{
+                            self.neighboors += 1
+                        }
+                    }
                 }
-                if array[i + 1][j].state == true {
-                    self.neighboors += 1;
-                }
-                if array[i][j + 1].state == true {
-                    self.neighboors += 1;
-                }
-                if array[i][j - 1].state == true {
-                    self.neighboors += 1;
-                }
-                if array[i - 1][j - 1].state == true {
-                    self.neighboors += 1;
-                }
-                if array[i - 1][j + 1].state == true {
-                    self.neighboors += 1;
-                }
-                if array[i + 1][j + 1].state == true {
-                    self.neighboors += 1;
-                }
-                if array[i + 1][j - 1].state == true {
-                    self.neighboors += 1;
+                if self.state == true {
+                    self.neighboors -= 1;
                 }
             }
         }
