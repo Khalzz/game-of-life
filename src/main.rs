@@ -27,17 +27,10 @@ fn main() {
     let mut event_pump = sdl_context.event_pump().unwrap();
     let mut _canvas = _window.into_canvas().build().unwrap();
 
-    // text
-    let ttf_context = sdl2::ttf::init().unwrap(); // we create a "context"
-    let use_font = "./assets/fonts/8bitOperatorPlusSC-Regular.ttf";
-    let mut _font = ttf_context.load_font(use_font, 32).unwrap();
-
-
     const GRID_DATA:Grid = Grid {
         height: 60, // 16
         width: 97
     };
-
     
     let mut array = vec![vec![cell::Box::new(0 ,false, 0, 0, 50, 50, 50); GRID_DATA.width];GRID_DATA.height];
     
