@@ -96,7 +96,6 @@ fn main() {
                 }
             }
         }
-
         // making the cells
         for i in (0..GRID_DATA.height).rev() {
             for j in (0..GRID_DATA.width - 1).rev() {
@@ -140,6 +139,7 @@ fn main() {
                         running = false;
                     }
                 }, sdl2::event::Event::KeyDown { keycode: Some(Keycode::R), .. }  => {
+                    running = false;
                     clean(&mut array, GRID_DATA);
                 },
                 _ => {} // in every other case we will do nothing
